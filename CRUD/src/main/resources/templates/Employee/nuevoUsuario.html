@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nuevo usuario</title>
+</head>
+<body>
+<section layout:fragment="contenido">
+    <div class="bg-light p-2 shadow p-3 mt-3 mb-3 bg-body rounded row justify-content-center">
+        <form class="col-auto" th:action="@{/employee}" method="post">
+            <h2 class="mb-4 mt-2">Nuevo usuario</h2>
+                <div class="mb-3">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" th:field="${employee.name}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Correo</label>
+                    <input type="text" th:field="${employee.email}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Elija su rol</label>
+                    <select name="role" th:field="${employee.role}">
+                        <option th:each="role : ${T(com.ProyectoCiclo3.CRUD.Entities.Enum_role).values()}" th:value="${role}" th:text="${role}">
+                        </option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Telefono</label>
+                    <input type="text" th:field="${profile.phone}" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Elija su empresa</label>
+                    <select th:field="${employee.enterprise}">
+                        <option th:each="enterprise : ${enterprises}"
+                                th:value="${enterprise.id}"
+                                th:text="${enterprise.name}">
+                        </option>
+                    </select>
+                </div>
+
+            <button type="submit" class="btn btn-primary mt-3 mb-3">Guardar</button>
+        </form>
+    </div>
+
+</section>
+
+</body>
+</html>
+</html>

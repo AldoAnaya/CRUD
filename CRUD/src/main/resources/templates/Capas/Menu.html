@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>menu</title>
+</head>
+<body>
+<nav th:fragment="Menu">
+    <ul class="nav nav-pills flex-column mb-auto d-grid gap-3 mt-5">
+        <li class="nav-item">
+            <a th:href="@{/transaction/list}" class="nav-link active">Ingresos y egresos</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/employee/list}" class="nav-link active">Usuarios</a>
+        </li>
+        <li class="nav-item">
+            <a th:href="@{/enterprise/list}" class="nav-link active">Empresas</a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Transacciones</title>
+</head>
+<body>
+    <main layout:fragment="contenido">
+        <div>
+            <div class="d-flex justify-content-end mt-2 mb-3">
+                <a class="btn btn-primary" th:href="@{/transaction/nuevo/}">Nuevo <i class="fa fa-edit"></i></a>
+            </div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Concepto</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                <tr th:each="transaction : ${listTransaction}">
+                    <!-- Dibuja columnas por cada campo del Objeto-->
+                    <td th:text="${transaction.concept}"></td>
+                    <td th:text="${transaction.amount}"></td>
+                    <td th:text="${transaction.createdAt}"></td>
+                    <td th:text="${transaction.employee.name}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{/transaction/modificar/{id} (id = ${transaction.id})}">Modificar <i class="fa fa-edit"></i></a>
+                        <a class="btn btn-danger" th:href="@{/transaction/borrar/{id} (id = ${transaction.id})}">Eliminar <i class="fa fa-edit"></i></a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+</body>
+</html>

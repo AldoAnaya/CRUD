@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div sec:authorize="!isAuthenticated()">
+    <a th:href="@{/oauth2/authorization/auth0}" class="nav-link active btn btn-primary">Inicia sesión</a>
+</div>
+<div sec:authorize="isAuthenticated()">
+    <div th:unless="${isVerificado == 'true'}">
+        <a th:href="@{/index}" class="nav-link active btn btn-primary">Llevame a la aplicación</a>
+    </div>
+    <div th:if="${isVerificado == 'true'}">
+        <div>
+            <p>Hola, en estos momentos no tienes acceso al sistema. Comunícate con el área de sistemas para más información.</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
