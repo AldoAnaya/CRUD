@@ -47,16 +47,4 @@ public class ProfileService {
     }
 
 
-    public boolean verificarUsuario(Map<String, Object> profileDatos){
-        String emailDeOuth0 = (String) profileDatos.get("email");
-        System.out.println(emailDeOuth0);
-        System.out.println(employeeService.findEmployeeByEmail(emailDeOuth0));
-
-        if(employeeService.findEmployeeByEmail(emailDeOuth0) == "no"){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
 }

@@ -23,21 +23,19 @@ public class EnterpriseService {
         List<Enterprise> listEnterprise = enterpriseRepository.findAll();
         return listEnterprise;
     }
-    public Optional<Enterprise> verEnterpriseId(Long id){
+    public Enterprise verEnterpriseId(Long id){
         Optional<Enterprise> enterpriseId = enterpriseRepository.findById(id);
-        return enterpriseId;
+        return enterpriseId.orElse(null);
     }
     public void eliminarEnterprise(Long id){
 
         enterpriseRepository.deleteById(id);
     }
     public void modificarEnterprise(Long id, Enterprise modificadoEnterprise){
-        Optional<Enterprise> enterpriseInDB = enterpriseRepository.findById(id);
-        if(enterpriseInDB.isEmpty()){
-            Enterprise enterpriseInSave = modificadoEnterprise;
-            enterpriseInSave.setId(enterpriseInDB.get().getId());
-            enterpriseInSave.setUpdatedAt(LocalDate.now());
-            enterpriseRepository.save(enterpriseInSave);
-        }
+        //Optional<Enterprise> enterpriseInDB = enterpriseRepository.findById(id);
+        modificadoEnterprise.setId(id);
+        modificadoEnterprise.setUpdatedAt(LocalDate.now());
+        enterpriseRepository.save(modificadoEnterprise);
+
     }
 }

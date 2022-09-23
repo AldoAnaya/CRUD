@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="index" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="UTF-8">
@@ -9,8 +10,20 @@
 </head>
 <body>
 <main layout:fragment="contenido">
-    <div>
-        <div class="d-flex justify-content-end mt-2 mb-3">
+
+    <div sec:authorize="!isAuthenticated()" >
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="card shadow-sm p-3 mb-5 bg-body rounded" style="width: 20rem;">
+                <div class="card-body">
+                    <p class="card-text text-center mt-3">Hola, en estos momentos no tienes acceso debe ingresar primero</p>
+                    <a th:href="@{/}" class="nav-link active btn btn-primary mt-4">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div sec:authorize="isAuthenticated()">
+        <div th:if="${#strings.toString(employee.getRole())}=='ADMIN'" class="d-flex justify-content-end mt-2 mb-3"> <!-- OJO a las lineas del th:if Asi comparas una variable de una entidad con un string-->
             <a class="btn btn-primary" th:href="@{/employee/nuevo/}">Nuevo <i class="fa fa-edit"></i></a>
         </div>
         <table class="table">
@@ -23,20 +36,22 @@
             </tr>
             </thead>
             <tbody class="table-group-divider">
-            <tr th:each="employee : ${listEmployee}">
+            <tr th:each="employeeDeList : ${listEmployee}">
                 <!-- Dibuja columnas por cada campo del Objeto-->
-                <td th:text="${employee.name}"></td>
-                <td th:text="${employee.email}"></td>
-                <td th:text="${employee.profile.phone}"></td>
-                <td>
-                    <a class="btn btn-warning" th:href="@{/employee/modificar/{id} (id = ${employee.id})}">Modificar <i class="fa fa-edit"></i></a>
-                    <a class="btn btn-danger" th:href="@{/employee/borrar/{id} (id = ${employee.id})}">Eliminar <i class="fa fa-edit"></i></a>
+                <td th:text="${employeeDeList.name}"></td>
+                <td th:text="${employeeDeList.email}"></td>
+                <td th:text="${employeeDeList.profile.phone}"></td>
+                <td th:if="${#strings.toString(employee.getRole())}=='ADMIN'">
+                    <a class="btn btn-warning m-1" th:href="@{/employee/modificar/{id} (id = ${employeeDeList.id})}">Modificar <i class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger m-1" th:href="@{/employee/borrar/{id} (id = ${employeeDeList.id})}">Eliminar <i class="fa fa-edit"></i></a>
+                </td>
+                <td th:if="${#strings.toString(employee.getRole())}=='OPERARIO'" >Sin permisos administrativos</td>
                 </td>
             </tr>
 
             </tbody>
         </table>
-    </div>
+    <div>
 </main>
 
 </body>

@@ -45,14 +45,11 @@ public class EmployeeService {
             profileRepository.save(profileModify);
     }
 
-    public String findEmployeeByEmail(String email){
-        if(employeeRepository.findByEmail(email) == null){
-            return "no";
-        }else {
-            Employee employee = employeeRepository.findByEmail(email);
-            String emailEmployeeDB = employee.getEmail();
-            return emailEmployeeDB;
+    public Employee findEmployeeByEmail(String email){
+        if(employeeRepository.findByEmail(email) != null){
+            return employeeRepository.findByEmail(email);
+        }else{
+            return null;
         }
-
     }
 }
