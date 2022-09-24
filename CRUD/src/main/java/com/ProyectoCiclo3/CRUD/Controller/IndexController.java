@@ -20,6 +20,7 @@ public class IndexController {
        if(principal!=null){
            if(employeeService.findEmployeeByEmail(principal.getEmail()) != null){
                Employee employee = employeeService.findEmployeeByEmail(principal.getEmail());
+               System.out.println(principal.getEmail());
                model.addAttribute("employee", employee);
            }else {
                model.addAttribute("employee", null);

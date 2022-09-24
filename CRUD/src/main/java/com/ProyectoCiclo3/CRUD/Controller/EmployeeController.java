@@ -80,6 +80,7 @@ public class EmployeeController {
     @PostMapping("/employee")
     private String guardarEmployee(@ModelAttribute("employee") Employee employee, @ModelAttribute("profile") Profile profile, @AuthenticationPrincipal OidcUser principal){
         if(employeeService.findEmployeeByEmail(principal.getEmail()) != null){
+
             // Aqui empieza el metodo del negocio
             employeeService.crearEmployee(employee);
             profile.setEmployee(employee);
