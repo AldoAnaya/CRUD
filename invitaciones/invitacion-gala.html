@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>The Danny's 2026 · Gala</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@400;500;600;700&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold: linear-gradient(180deg,#fff6d2 0%,#f7d67e 28%,#d9a441 55%,#a8701f 78%,#f1cf7a 100%);
+    --gold-h: linear-gradient(90deg,#f7e2a6 0%,#e7b85a 45%,#c98a35 75%,#a8652a 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;display:flex;justify-content:center}
+  .slide{
+    position:relative;width:1080px;height:1350px;overflow:hidden;
+    background:
+      radial-gradient(900px 700px at 85% 55%, rgba(120,62,18,.55), transparent 70%),
+      radial-gradient(600px 500px at 10% 20%, rgba(70,40,15,.45), transparent 70%),
+      #060403;
+    font-family:'Poppins',sans-serif;color:#f3e6c8;
+  }
+  /* fine grid texture */
+  .slide::before{
+    content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:6px 6px;pointer-events:none;
+  }
+  /* silky light streaks */
+  .streaks{position:absolute;inset:0;pointer-events:none;filter:blur(1.5px)}
+  /* trophy */
+  .trophy{
+    position:absolute;right:-235px;top:20px;height:1420px;
+    mix-blend-mode:screen;
+    -webkit-mask-image:linear-gradient(180deg,#000 85%,transparent 100%);
+            mask-image:linear-gradient(180deg,#000 85%,transparent 100%);
+  }
+  /* blurred trophies (depth of field) */
+  .blur{position:absolute;mix-blend-mode:screen;pointer-events:none}
+  .blur.b1{left:-70px;top:-140px;height:620px;transform:rotate(-38deg);filter:blur(16px);opacity:.75}
+  .blur.b2{left:-190px;top:880px;height:560px;transform:rotate(28deg);filter:blur(20px);opacity:.55}
+
+  .content{position:absolute;left:92px;top:250px;width:640px}
+  .presenta{display:flex;align-items:center;gap:18px;margin-bottom:40px}
+  .presenta img{height:78px;mix-blend-mode:screen}
+  .presenta p{font-family:'Jost',sans-serif;font-weight:400;font-size:19px;letter-spacing:.32em;line-height:1.35;color:#efe2c3}
+  h1{
+    font-family:'Archivo Black',sans-serif;font-weight:400;
+    font-size:116px;line-height:.95;letter-spacing:-.01em;
+    background:var(--gold-h);-webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 4px 18px rgba(230,160,60,.25));
+  }
+  h1 .y{font-size:146px}
+  .ribbon{
+    position:relative;display:inline-block;margin-top:34px;
+    padding:16px 44px 18px 40px;
+    font-weight:600;font-size:30px;color:#fff;
+    background:linear-gradient(180deg,#e4262c,#9e0f14);
+    transform:rotate(-3deg);
+    clip-path:polygon(0 8%,100% 0,94% 50%,100% 100%,2% 92%,6% 50%);
+    box-shadow:0 10px 30px rgba(180,0,0,.35);
+  }
+  .tagline{margin-top:42px;font-family:'Jost',sans-serif;font-size:27px;line-height:1.35;color:#f0e2c0;font-weight:300}
+  .tagline b{font-weight:400;color:#f6d27c}
+  .date-label{margin-top:64px;font-family:'Jost',sans-serif;font-size:18px;letter-spacing:.32em;color:#e9dcbd}
+  .pill{
+    display:inline-block;margin-top:16px;padding:14px 38px;border-radius:22px;
+    border:1.5px solid rgba(232,190,110,.75);
+    background:rgba(20,12,6,.6);
+    font-size:42px;font-weight:500;letter-spacing:.06em;color:#fff;
+  }
+  .edicion{position:absolute;left:92px;bottom:70px;font-family:'Jost',sans-serif;font-size:19px;letter-spacing:.26em;line-height:1.7;color:#bfa77a}
+  .edicion span{color:#f2cf7c}
+</style>
+</head>
+<body>
+<div class="slide">
+  <svg class="streaks" viewBox="0 0 1080 1350" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="s" x1="0" x2="1">
+        <stop offset="0" stop-color="#ffb35c" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#ffbe6a" stop-opacity=".55"/>
+        <stop offset="1" stop-color="#ff9a3a" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M520 -40 C 460 300, 520 520, 760 760 S 1000 1150, 1120 1250" stroke="url(#s)" stroke-width="2" fill="none"/>
+    <path d="M600 -40 C 560 260, 640 520, 860 700 S 1080 980, 1140 1100" stroke="url(#s)" stroke-width="1.5" fill="none" opacity=".7"/>
+    <path d="M1100 300 C 900 420, 820 620, 900 900 S 980 1250, 860 1400" stroke="url(#s)" stroke-width="3" fill="none" opacity=".5"/>
+  </svg>
+
+  <img class="blur b1" src="assets/trofeo-mini.png" alt="">
+  <img class="blur b2" src="assets/trofeo-mini.png" alt="">
+  <img class="trophy" src="assets/trofeo.jpg" alt="Trofeo The Danny's">
+
+  <div class="content">
+    <div class="presenta">
+      <img src="assets/trofeo-mini.png" alt="">
+      <p>THE DANNY'S<br>PRESENTA</p>
+    </div>
+    <h1>THE<br>DANNY'S<br><span class="y">2026</span></h1>
+    <div class="ribbon">Save The Date</div>
+    <p class="tagline">Una noche inolvidable de<br><b>reconocimiento y celebración</b></p>
+    <p class="date-label">MIÉRCOLES 16 DE DICIEMBRE</p>
+    <div class="pill">16 · 12 · 26</div>
+  </div>
+  <p class="edicion"><span>EDICIÓN ESPECIAL</span><br>UN AÑO DE EVENTOS ÚNICOS</p>
+</div>
+</body>
+</html>

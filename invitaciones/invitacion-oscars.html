@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>The Danny's 2026 · Clásica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold: linear-gradient(180deg,#fbe7b0 0%,#e9c27a 35%,#c48a45 65%,#9a6430 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#000;display:flex;justify-content:center}
+  .slide{
+    position:relative;width:1080px;height:1350px;overflow:hidden;background:#000;
+    font-family:'Jost',sans-serif;color:#d9b278;text-align:center;
+  }
+  .hero{
+    position:absolute;left:50%;top:-30px;transform:translateX(-50%);
+    width:860px;
+    -webkit-mask-image:
+      linear-gradient(180deg,#000 0%,#000 66%,transparent 92%),
+      radial-gradient(ellipse 62% 70% at 50% 42%,#000 60%,transparent 100%);
+    -webkit-mask-composite:source-in;
+            mask-image:
+      linear-gradient(180deg,#000 0%,#000 66%,transparent 92%),
+      radial-gradient(ellipse 62% 70% at 50% 42%,#000 60%,transparent 100%);
+            mask-composite:intersect;
+  }
+  .gold{background:var(--gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  .logo{position:absolute;left:0;right:0;top:868px}
+  .logo .the{font-weight:400;font-size:34px;letter-spacing:.42em;padding-left:.42em}
+  .word{display:flex;justify-content:center;align-items:flex-end;margin-top:2px;
+        filter:drop-shadow(0 0 22px rgba(230,170,80,.35))}
+  .word span{font-weight:200;font-size:132px;line-height:1;letter-spacing:.06em}
+  .a{position:relative;width:104px;height:116px;margin:0 6px 13px}
+  .a svg{position:absolute;inset:0}
+  .a img{position:absolute;left:50%;bottom:0;height:72px;transform:translateX(-50%);mix-blend-mode:screen}
+
+  .info{position:absolute;left:0;right:0;top:1080px}
+  .kicker{font-size:19px;letter-spacing:.38em;padding-left:.38em;color:#b8915a;font-weight:400}
+  .date{margin-top:6px;font-weight:300;font-size:70px;letter-spacing:.02em;line-height:1.1}
+  .date small{font-size:54px}
+  .sub{margin-top:6px;font-size:21px;letter-spacing:.08em;color:#bf9864;font-weight:300}
+  .ed{position:absolute;left:0;right:0;bottom:46px;font-size:17px;letter-spacing:.34em;padding-left:.34em;color:#8f7146}
+  .ed b{font-weight:500;color:#d9b278}
+  .line{width:120px;height:1px;margin:18px auto 0;background:linear-gradient(90deg,transparent,#c69a5a,transparent)}
+</style>
+</head>
+<body>
+<div class="slide">
+  <img class="hero" src="assets/trofeo-cristales.jpg" alt="Trofeo The Danny's">
+
+  <div class="logo">
+    <div class="the gold">THE</div>
+    <div class="word">
+      <span class="gold">D</span>
+      <div class="a">
+        <svg viewBox="0 0 104 116">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fbe7b0"/><stop offset=".35" stop-color="#e9c27a"/>
+              <stop offset=".65" stop-color="#c48a45"/><stop offset="1" stop-color="#9a6430"/>
+            </linearGradient>
+          </defs>
+          <path d="M3 116 L52 3 L101 116" fill="none" stroke="url(#g)" stroke-width="5.5" stroke-linejoin="miter"/>
+        </svg>
+        <img src="assets/trofeo-mini.png" alt="">
+      </div>
+      <span class="gold">NNY'S</span>
+    </div>
+  </div>
+
+  <div class="info">
+    <div class="kicker">SAVE THE DATE · 2026</div>
+    <div class="date gold">MIÉRCOLES 16 <small>DIC</small></div>
+    <div class="sub">Una noche inolvidable de reconocimiento y celebración</div>
+    <div class="line"></div>
+  </div>
+  <div class="ed"><b>EDICIÓN ESPECIAL</b> · UN AÑO DE EVENTOS ÚNICOS</div>
+</div>
+</body>
+</html>
